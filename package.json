@@ -7,7 +7,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "test": "vitest run"
   },
   "dependencies": {
     "highlight.js": "^11.11.1",
@@ -16,10 +17,14 @@
     "vue": "^3.5.0"
   },
   "devDependencies": {
+    "@nuxt/test-utils": "^4.0.3",
     "@tailwindcss/typography": "^0.5.20",
     "@tailwindcss/vite": "^4.3.2",
     "@types/markdown-it": "^14.1.2",
+    "@vue/test-utils": "^2.4.11",
+    "happy-dom": "^20.10.6",
     "tailwindcss": "^4.3.2",
-    "typescript": "^5.8.0"
+    "typescript": "^5.8.0",
+    "vitest": "^4.1.10"
   }
 }

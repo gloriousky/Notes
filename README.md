@@ -29,3 +29,11 @@ app/
 server/api/notes.get.ts  # 抓 GitHub Issues，快取 5 分鐘 + SWR
 shared/types.ts
 ```
+
+## 測試
+
+```bash
+npm test         # vitest run — 資料轉換、markdown 渲染、NoteCard 元件
+```
+
+CI 會在每次部署前先跑測試（`.github/workflows/deploy.yml` 的 `test` job），沒過不會 generate 也不會 deploy。
