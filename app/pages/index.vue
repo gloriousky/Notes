@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const { notes, categories } = useNotes()
 
-const latestNotes = computed(() => notes.value.slice(0, 3))
+const latestNotes = computed(() => notes.value.slice(0, 6))
 
 useSeoMeta({
   title: "David's Notes — 前端開發筆記",
