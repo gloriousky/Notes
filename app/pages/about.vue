@@ -7,6 +7,9 @@ const skills = {
 
 const highlightStack = ['Vue 3', 'Vite 5', 'TypeScript', 'Pinia', 'Tailwind CSS', 'Socket.io', 'LINE LIFF SDK', 'GSAP', 'ECharts', 'RxJS']
 
+// 拆開寫避免被 bundler 的 import.meta 替換誤傷（模板裡的純文字也會被掃到）
+const importMetaGlob = ['import', 'meta', 'glob()'].join('.')
+
 useSeoMeta({
   title: "關於我 — David's Notes",
   description: '前端工程師 David：Vue/Nuxt/TypeScript，直播平台與運動賽事應用開發經驗。',
@@ -77,53 +80,95 @@ useSeoMeta({
       </div>
     </section>
 
-    <!-- 專案亮點 -->
+    <!-- 工作經歷 -->
     <section class="mt-16">
-      <h2 class="text-2xl font-bold text-gray-900 dark:text-white">💼 專案亮點</h2>
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white">💼 工作經歷</h2>
+
+      <ol class="relative mt-8 space-y-10 border-l border-gray-200 pl-6 dark:border-gray-800">
+        <!-- 巨兆數位 -->
+        <li class="relative">
+          <span class="absolute -left-[31px] top-1.5 size-2.5 rounded-full bg-primary-400 ring-4 ring-white dark:ring-ink" />
+          <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Frontend Web Developer</h3>
+            <span class="text-sm font-medium text-primary-600 dark:text-primary-400">巨兆數位有限公司</span>
+          </div>
+          <p class="mt-1 text-sm text-gray-400 dark:text-gray-500">
+            2022/04 – 現在 ・ 全職 ・ 台中（遠距）
+          </p>
+          <ul class="mt-4 space-y-2 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+            <li class="flex gap-2">
+              <span class="mt-0.5 text-primary-500 dark:text-primary-400">▸</span>
+              <span>使用 <strong class="font-medium text-gray-900 dark:text-white">RxJS</strong> 提升網頁效能，改善使用者體驗</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="mt-0.5 text-primary-500 dark:text-primary-400">▸</span>
+              <span>建立<strong class="font-medium text-gray-900 dark:text-white">多國語系</strong>，根據使用者裝置製作響應式頁面</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="mt-0.5 text-primary-500 dark:text-primary-400">▸</span>
+              <span>串接 <strong class="font-medium text-gray-900 dark:text-white">LINE、Google 第三方登入</strong></span>
+            </li>
+            <li class="flex gap-2">
+              <span class="mt-0.5 text-primary-500 dark:text-primary-400">▸</span>
+              <span>以 <strong class="font-medium text-gray-900 dark:text-white">Meta Pixel、Google Tag Manager</strong> 追蹤使用者行為並分析數據</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="mt-0.5 text-primary-500 dark:text-primary-400">▸</span>
+              <span>大量圖片與長列表場景導入 <strong class="font-medium text-gray-900 dark:text-white">Lazy Loading、Virtual List</strong></span>
+            </li>
+          </ul>
+
+          <!-- 代表專案：LINE H5 娛樂平台 -->
+          <div class="mt-5 rounded-xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-gray-900/50">
+            <p class="text-xs font-semibold uppercase tracking-wide text-gray-400 dark:text-gray-500">代表專案</p>
+            <h4 class="mt-1.5 font-semibold text-gray-900 dark:text-white">LINE H5 娛樂平台</h4>
+            <div class="mt-2.5 flex flex-wrap gap-1.5">
+              <span
+                v-for="tech in highlightStack"
+                :key="tech"
+                class="rounded-full bg-primary-50 px-2.5 py-0.5 text-xs font-medium text-primary-700 dark:bg-primary-950/60 dark:text-primary-400"
+              >
+                {{ tech }}
+              </span>
+            </div>
+            <p class="mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+              基於 LINE 的線上娛樂平台完整 H5 應用：遊戲、金流、公會、推薦分潤、即時聊天。
+              亮點：GTM/GA4/Meta Pixel 事件追蹤與轉換量測；Service Worker 差異化快取
+              （hashed 資源 network-first、靜態資源 cache-first、index.html 強制更新）；
+              PWA 加入主畫面；瀏覽器端圖片壓縮與自訂 lazy-load 指令；
+              Terser 清除 console 與 <code class="rounded bg-gray-100 px-1 text-xs dark:bg-gray-800">{{ importMetaGlob }}</code> 自動註冊 + code splitting。
+            </p>
+          </div>
+        </li>
+
+        <!-- 創視科技 -->
+        <li class="relative">
+          <span class="absolute -left-[31px] top-1.5 size-2.5 rounded-full bg-gray-300 ring-4 ring-white dark:bg-gray-700 dark:ring-ink" />
+          <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Frontend Web Developer</h3>
+            <span class="text-sm font-medium text-primary-600 dark:text-primary-400">創視科技有限公司</span>
+          </div>
+          <p class="mt-1 text-sm text-gray-400 dark:text-gray-500">
+            2021/02 – 2022/03 ・ 全職 ・ 台中
+          </p>
+          <ul class="mt-4 space-y-2 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+            <li class="flex gap-2">
+              <span class="mt-0.5 text-primary-500 dark:text-primary-400">▸</span>
+              <span>以 <strong class="font-medium text-gray-900 dark:text-white">PHP、Vue 2、uni-app</strong> 開發與維護專案</span>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Side Projects -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold text-gray-900 dark:text-white">🛠 Side Projects</h2>
 
       <article class="mt-6 rounded-xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900/50">
         <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-          LINE H5 娛樂平台
+          台股三大法人持股追蹤器
         </h3>
-        <div class="mt-3 flex flex-wrap gap-1.5">
-          <span
-            v-for="tech in highlightStack"
-            :key="tech"
-            class="rounded-full bg-primary-50 px-2.5 py-0.5 text-xs font-medium text-primary-700 dark:bg-primary-950/60 dark:text-primary-400"
-          >
-            {{ tech }}
-          </span>
-        </div>
-        <p class="mt-4 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-          基於 LINE 的線上娛樂平台完整 H5 應用：遊戲、金流、公會、推薦分潤、即時聊天。
-        </p>
-        <ul class="mt-4 space-y-2 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-          <li class="flex gap-2">
-            <span class="mt-0.5 text-primary-500 dark:text-primary-400">▸</span>
-            <span><strong class="font-medium text-gray-900 dark:text-white">廣告與分析整合</strong>：GTM、GA4、Meta Pixel 的事件追蹤與轉換量測</span>
-          </li>
-          <li class="flex gap-2">
-            <span class="mt-0.5 text-primary-500 dark:text-primary-400">▸</span>
-            <span><strong class="font-medium text-gray-900 dark:text-white">Service Worker 差異化快取</strong>：hashed JS/CSS 走 network-first 確保新鮮度、靜態資源 cache-first 支援離線、<code class="rounded bg-gray-100 px-1 text-xs dark:bg-gray-800">index.html</code> 強制 cache-busting</span>
-          </li>
-          <li class="flex gap-2">
-            <span class="mt-0.5 text-primary-500 dark:text-primary-400">▸</span>
-            <span><strong class="font-medium text-gray-900 dark:text-white">PWA</strong>：manifest + standalone 模式，支援加入主畫面</span>
-          </li>
-          <li class="flex gap-2">
-            <span class="mt-0.5 text-primary-500 dark:text-primary-400">▸</span>
-            <span><strong class="font-medium text-gray-900 dark:text-white">效能優化</strong>：瀏覽器端圖片壓縮、自訂 lazy-load 與錯誤 fallback 指令、Terser 移除 console、<code class="rounded bg-gray-100 px-1 text-xs dark:bg-gray-800">import.meta.glob()</code> 自動註冊與 code splitting</span>
-          </li>
-        </ul>
-      </article>
-
-      <article class="mt-4 rounded-xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900/50">
-        <div class="flex items-start justify-between gap-4">
-          <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-            台股三大法人持股追蹤器
-          </h3>
-          <span class="shrink-0 rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-500 dark:bg-gray-800 dark:text-gray-400">Side Project</span>
-        </div>
         <div class="mt-3 flex flex-wrap gap-1.5">
           <span
             v-for="tech in ['Python', 'pandas', 'GitHub Actions', 'ECharts']"
@@ -148,12 +193,9 @@ useSeoMeta({
       </article>
 
       <article class="mt-4 rounded-xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900/50">
-        <div class="flex items-start justify-between gap-4">
-          <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-            這個網站
-          </h3>
-          <span class="shrink-0 rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-500 dark:bg-gray-800 dark:text-gray-400">Meta</span>
-        </div>
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+          這個網站
+        </h3>
         <p class="mt-4 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
           Nuxt 4 + Tailwind CSS 4 打造的筆記站：內容直接來自 GitHub Issues——開 issue 就是發文章、
           label 就是分類；Actions 在 issue 變動時自動測試、建置、部署到 GitHub Pages。
