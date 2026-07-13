@@ -20,6 +20,12 @@ describe('renderMarkdown', () => {
     expect(html).toContain('hljs-keyword')   // const 被上色
   })
 
+  it('vue 語言透過別名上色（hljs 沒有 vue 文法，借用 xml）', () => {
+    const html = renderMarkdown('```vue\n<template>\n  <div class="a">{{ msg }}</div>\n</template>\n```')
+    expect(html).toContain('class="hljs language-vue"')
+    expect(html).toContain('hljs-tag')   // 標籤有被上色，不是純文字
+  })
+
   it('未知語言的程式碼區塊仍以跳脫後的純文字輸出', () => {
     const html = renderMarkdown('```notalang\n<b>raw</b>\n```')
     expect(html).toContain('class="hljs"')
