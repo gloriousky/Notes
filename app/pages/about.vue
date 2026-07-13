@@ -161,54 +161,5 @@ useSeoMeta({
       </ol>
     </section>
 
-    <!-- Side Projects -->
-    <section class="mt-16">
-      <h2 class="text-2xl font-bold text-gray-900 dark:text-white">🛠 Side Projects</h2>
-
-      <article class="mt-6 rounded-xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900/50">
-        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-          台股三大法人持股追蹤器
-        </h3>
-        <div class="mt-3 flex flex-wrap gap-1.5">
-          <span
-            v-for="tech in ['Python', 'pandas', 'GitHub Actions', 'ECharts']"
-            :key="tech"
-            class="rounded-full bg-primary-50 px-2.5 py-0.5 text-xs font-medium text-primary-700 dark:bg-primary-950/60 dark:text-primary-400"
-          >
-            {{ tech }}
-          </span>
-        </div>
-        <p class="mt-4 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-          每日自動抓取 TWSE/TPEX 三大法人買賣超與外資持股資料，推估投信/自營商持股比重，
-          以 GitHub Actions 全自動更新並發佈互動圖表到 GitHub Pages。
-        </p>
-        <a
-          href="https://github.com/gloriousky/tw-institutional-stocker"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="mt-4 inline-block text-sm font-medium text-primary-500 hover:underline dark:text-primary-400"
-        >
-          GitHub Repo →
-        </a>
-      </article>
-
-      <article class="mt-4 rounded-xl border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900/50">
-        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-          這個網站
-        </h3>
-        <p class="mt-4 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-          Nuxt 4 + Tailwind CSS 4 打造的筆記站：內容直接來自 GitHub Issues——開 issue 就是發文章、
-          label 就是分類；Actions 在 issue 變動時自動測試、建置、部署到 GitHub Pages。
-        </p>
-        <a
-          href="https://github.com/gloriousky/Notes"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="mt-4 inline-block text-sm font-medium text-primary-500 hover:underline dark:text-primary-400"
-        >
-          原始碼 →
-        </a>
-      </article>
-    </section>
   </div>
 </template>
